@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceCoach - AI Interview Coach That Gets You Hired</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .pain-point {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .pain-point h3 {
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-point p {
+            color: #742a2a;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #38a169;
+        }
+
+        .solution-highlight h3 {
+            color: #2f855a;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-highlight p {
+            color: #22543d;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-style: italic;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .urgency-text {
+            background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid #dd6b20;
+            color: #9c4221;
+            font-weight: 500;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .email-input {
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: #718096;
+            margin-top: 1rem;
+        }
+
+        .social-proof {
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>💪 AceCoach</h1>
+            <p class="subtitle">AI Interview Coach that practices with you until you're unstoppable</p>
+            
+            <div class="pain-point">
+                <h3>😰 Does this sound familiar?</h3>
+                <p>"I'm great at my job, but terrible at interviews. I freeze up, ramble, or give generic answers that don't stand out."</p>
+            </div>
+
+            <div class="solution-highlight">
+                <h3>✨ Here's what changes everything:</h3>
+                <p>Practice with an AI coach that knows your target company's culture, asks the exact questions they ask, and gives you real-time feedback until you nail it.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <h3>🎯 Company-Specific Practice</h3>
+                    <p>Mock interviews tailored to Google, Amazon, Microsoft - with their actual question patterns and culture</p>
+                </div>
+                <div class="feature">
+                    <h3>📹 Real-Time Feedback</h3>
+                    <p>AI analyzes your tone, pace, filler words, and confidence. Get instant coaching on what to improve</p>
+                </div>
+                <div class="feature">
+                    <h3>🧠 Behavioral Question Mastery</h3>
+                    <p>STAR method coaching with examples from your actual experience. Never be caught off-guard again</p>
+                </div>
+                <div class="feature">
+                    <h3>📊 Progress Tracking</h3>
+                    <p>See your improvement over time. Know exactly when you're ready for the real interview</p>
+                </div>
+            </div>
+
+            <div class="testimonial">
+                <div class="testimonial-text">
+                    "After 3 practice sessions with AceCoach, I went from bombing interviews to getting 3 offers in 2 weeks. The confidence boost alone was worth it."
+                </div>
+                <div class="testimonial-author">- Sarah M., Software Engineer</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Stop Failing Interviews</h2>
+            <p>Your next interview could be the one that changes your career. Don't leave it to chance.</p>
+            
+            <div class="urgency-text">
+                ⏰ Limited Beta: First 100 users get lifetime access for $29 (normally $99/month)
+            </div>
+
+            <div class="social-proof">
+                <strong>200+ professionals</strong> already practicing with AceCoach
+            </div>
+
+            <form class="email-form" onsubmit="handleSubmit(event)">
+                <input 
+                    type="email" 
+                    class="email-input" 
+                    placeholder="Enter your email address"
+                    required
+                >
+                <button type="submit" class="cta-button">Get Beta Access Now</button>
+            </form>
+
+            <p class="privacy-note">
+                We respect your privacy. Unsubscribe anytime. No spam, ever.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Store email (in real implementation, send to your backend)
+            console.log('Email submitted:', email);
+            
+            // Show success message
+            alert('Welcome to AceCoach beta! Check your email for next steps.');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Simple analytics tracking
+        function trackEvent(eventName) {
+            console.log('Event tracked:', eventName);
+        }
+
+        // Track page load
+        trackEvent('page_view_interview_coach');
+        
+        // Track form interactions
+        document.querySelector('.email-input').addEventListener('focus', () => {
+            trackEvent('email_input_focus');
+        });
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects to features
+            const features = document.querySelectorAll('.feature');
+            features.forEach(feature => {
+                feature.addEventListener('mouseenter', function() {
+                    trackEvent('feature_hover');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

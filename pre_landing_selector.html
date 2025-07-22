@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Career Tools - What's Your Biggest Challenge?</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem 2rem 2rem 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #4a5568;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .question {
+            font-size: 1.6rem;
+            color: #2d3748;
+            margin-bottom: 3rem;
+            font-weight: 500;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .option-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .card-problem {
+            font-size: 1rem;
+            color: #e53e3e;
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .card-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: 100%;
+        }
+
+        .card-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Different gradient for each card */
+        .option-card:nth-child(1) .card-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .option-card:nth-child(2) .card-button {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .option-card:nth-child(3) .card-button {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat {
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .question {
+                font-size: 1.3rem;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 AI-Powered Career Tools</h1>
+            <p class="subtitle">Stop struggling with job searches. Let AI be your career advantage.</p>
+            <p class="question">What's your biggest career challenge right now?</p>
+        </div>
+
+        <div class="options-grid">
+            <div class="option-card" onclick="selectOption('market-intelligence')">
+                <span class="card-icon">🎯</span>
+                <h3 class="card-title">I don't know my market value</h3>
+                <p class="card-problem">"Am I underpaid? What skills should I learn?"</p>
+                <p class="card-description">Get real-time salary intelligence, skill demand forecasting, and career path mapping. Know exactly where you stand and where you're headed.</p>
+                <button class="card-button">Explore CareerIntel</button>
+            </div>
+
+            <div class="option-card" onclick="selectOption('application-optimizer')">
+                <span class="card-icon">🤖</span>
+                <h3 class="card-title">My applications go nowhere</h3>
+                <p class="card-problem">"I apply to 100 jobs and hear back from 3"</p>
+                <p class="card-description">AI optimizes your resume for each job, writes personalized cover letters, and scores your application success probability.</p>
+                <button class="card-button">Explore AppliBot</button>
+            </div>
+
+            <div class="option-card" onclick="selectOption('interview-coach')">
+                <span class="card-icon">💪</span>
+                <h3 class="card-title">I bomb interviews</h3>
+                <p class="card-problem">"I'm great at my job but terrible at interviews"</p>
+                <p class="card-description">Practice with AI that knows company cultures, gives real-time feedback, and coaches you until you're confident and compelling.</p>
+                <button class="card-button">Explore AceCoach</button>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">of resumes never reach humans</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">6 months</div>
+                    <div class="stat-label">average job search length</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$15K</div>
+                    <div class="stat-label">cost of not negotiating salary</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="footer-note">
+            Choose your biggest pain point above, or explore all three tools to maximize your career success.
+        </p>
+    </div>
+
+    <script>
+        function selectOption(tool) {
+            // Track which option was selected
+            trackEvent(`option_selected_${tool}`);
+            
+            // In production, these would be your actual landing page URLs
+            const urls = {
+                'market-intelligence': '#market-intelligence', // Replace with actual URL
+                'application-optimizer': '#application-optimizer', // Replace with actual URL  
+                'interview-coach': '#interview-coach' // Replace with actual URL
+            };
+            
+            // For demo purposes, show an alert. In production, redirect to the landing page
+            const toolNames = {
+                'market-intelligence': 'CareerIntel (Market Intelligence)',
+                'application-optimizer': 'AppliBot (Application Optimizer)', 
+                'interview-coach': 'AceCoach (Interview Coach)'
+            };
+            
+            alert(`You selected: ${toolNames[tool]}\n\nIn production, this would redirect to the specific landing page.`);
+            
+            // In production, uncomment this:
+            // window.location.href = urls[tool];
+        }
+
+        function trackEvent(eventName) {
+            console.log('Event tracked:', eventName);
+            // In production: gtag('event', eventName, {...});
+        }
+
+        // Track page load
+        trackEvent('pre_landing_page_view');
+
+        // Track hover events on cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.option-card');
+            cards.forEach((card, index) => {
+                card.addEventListener('mouseenter', function() {
+                    const tools = ['market-intelligence', 'application-optimizer', 'interview-coach'];
+                    trackEvent(`card_hover_${tools[index]}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
