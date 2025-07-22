@@ -254,7 +254,7 @@
                 <strong>300+ job seekers</strong> already testing our beta
             </div>
 
-            <form class="email-form" onsubmit="handleSubmit(event)">
+            <!--<form class="email-form" onsubmit="handleSubmit(event)">
                 <input 
                     type="email" 
                     class="email-input" 
@@ -262,6 +262,12 @@
                     required
                 >
                 <button type="submit" class="cta-button">Start Getting Interviews</button>
+            </form>-->
+            <form action="https://formsubmit.co/your-email@gmail.com" method="POST" class="email-form">
+                <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
+                <input type="hidden" name="_subject" value="New signup - [Page Name]">
+                <input type="hidden" name="_next" value="https://yourusername.github.io/career-ai-landing-pages/thank-you.html">
+                <button type="submit" class="cta-button">Get Early Access</button>
             </form>
 
             <p class="privacy-note">
