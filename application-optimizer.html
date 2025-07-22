@@ -262,11 +262,25 @@
                     required
                 >
                 <button type="submit" class="cta-button">Start Getting Interviews</button>
-            </form>-->
+            </form>
             <form action="https://formsubmit.co/your-email@gmail.com" method="POST" class="email-form">
                 <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
                 <input type="hidden" name="_subject" value="New signup - [Page Name]">
                 <input type="hidden" name="_next" value="https://yourusername.github.io/career-ai-landing-pages/thank-you.html">
+                <button type="submit" class="cta-button">Get Early Access</button>
+            </form>-->
+
+            <form action="https://formsubmit.co/youremail@gmail.com" method="POST" class="email-form">
+                <!-- Your email input -->
+                <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
+                
+                <!-- Hidden fields for better tracking -->
+                <input type="hidden" name="_subject" value="New Career AI Signup">
+                <input type="hidden" name="page" value="Application Optimizer"> <!-- Change for each page -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <!-- Your submit button -->
                 <button type="submit" class="cta-button">Get Early Access</button>
             </form>
 
