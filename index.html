@@ -286,9 +286,9 @@
             
             // In production, these would be your actual landing page URLs
             const urls = {
-                'market-intelligence': '#market-intelligence', // Replace with actual URL
-                'application-optimizer': '#application-optimizer', // Replace with actual URL  
-                'interview-coach': '#interview-coach' // Replace with actual URL
+                'market-intelligence': 'market-intelligence.html',
+                'application-optimizer': 'application-optimizer.html',  
+                'interview-coach': 'interview-coach.html'
             };
             
             // For demo purposes, show an alert. In production, redirect to the landing page
@@ -301,7 +301,7 @@
             alert(`You selected: ${toolNames[tool]}\n\nIn production, this would redirect to the specific landing page.`);
             
             // In production, uncomment this:
-            // window.location.href = urls[tool];
+            window.location.href = urls[tool];
         }
 
         function trackEvent(eventName) {
