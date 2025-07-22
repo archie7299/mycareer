@@ -190,13 +190,26 @@
                 <strong>500+ professionals</strong> already signed up
             </div>
 
-            <form class="email-form" onsubmit="handleSubmit(event)">
+            <!--<form class="email-form" onsubmit="handleSubmit(event)">
                 <input 
                     type="email" 
                     class="email-input" 
                     placeholder="Enter your email address"
                     required
                 >
+                <button type="submit" class="cta-button">Get Early Access</button>
+            </form>-->
+            <form action="https://formsubmit.co/youremail@gmail.com" method="POST" class="email-form">
+                <!-- Your email input -->
+                <input type="email" name="email" class="email-input" placeholder="Enter your email address" required>
+                
+                <!-- Hidden fields for better tracking -->
+                <input type="hidden" name="_subject" value="New Career AI Signup">
+                <input type="hidden" name="page" value="Market Intelligence"> <!-- Change for each page -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <!-- Your submit button -->
                 <button type="submit" class="cta-button">Get Early Access</button>
             </form>
 
